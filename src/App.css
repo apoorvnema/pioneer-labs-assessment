@@ -54,7 +54,7 @@ body {
 }
 
 .Sidebar {
-    background-color: #282828;
+    background-color: #202123;
     color: #0da37f;
     height: 100vh;
     flex-shrink: 0;
@@ -121,45 +121,72 @@ body {
     display: flex;
 }
 
-/* Homepage */
-.Homepage {
+/* Homepage, Population, Crypto, About */
+.Content {
     display: flex;
-    background-color: #3c3c50;
-    color: white;
-    width: 100%;
-    height: 100vh;
-    overflow-x: auto;
-}
-
-/* Population */
-.Population {
-    display: flex;
-    background-color: #3c3c50;
+    background-color: #282c34;
     color: white;
     width: 100%;
     height: 100vh;
     overflow-x: auto;
     align-items: center;
+    justify-content: center;
     padding-left: 10px;
     padding-right: 10px;
+    overflow-y: auto;
+    flex-direction: column;
 }
 
-/* Crypto */
-.Crypto {
-    display: flex;
-    background-color: #3c3c50;
-    color: white;
-    width: 100%;
-    height: 100vh;
-    overflow-x: auto;
+.Content h1 {
+    color: #0da37f;
 }
 
-/* About */
-.About {
+/* Crypto Card */
+.Crypto.Heading {
     display: flex;
-    background-color: #3c3c50;
-    color: white;
     width: 100%;
-    height: 100vh;
-    overflow-x: auto;
+    justify-content: center;
+    gap: 15px;
+    padding: 15px;
+    align-items: center;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+}
+
+.flag {
+    width: 150px;
+    padding: 15px 0px;
+}
+
+.cards {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    background-color: #202123;
+    border: 1px solid #0da37f;
+    border-radius: 15px;
+    font-size: 20px;
+    width: 30%;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 #0da37f55;
+    border: 1px solid #13e3b6;
+}
+
+.container {
+    padding: 2px 16px;
+}
+
+.note {
+    font-size: 20px;
+    color: grey;
 }
