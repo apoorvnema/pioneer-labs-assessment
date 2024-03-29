@@ -3,25 +3,14 @@ import React, { useEffect, useState } from 'react'
 
 const CryptoCard = () => {
     const [bitCoinData, setBitCoinData] = useState([]);
+    const [isMobile, setMobile] = useState(false);
 
     useEffect(() => {
         const handleResize = () => {
-            const cards = document.querySelectorAll('.card');
-            const cardsMain = document.querySelector('.cards');
-            if (cards && cardsMain) {
-                if (window.innerWidth < 1024) {
-                    cardsMain.classList.add('card-direction');
-                    cards.forEach((card) => {
-                        card.classList.add('card-mobile');
-                        card.classList.remove('card-desktop');
-                    });
-                } else {
-                    cardsMain.classList.remove('card-direction');
-                    cards.forEach((card) => {
-                        card.classList.remove('card-mobile');
-                        card.classList.add('card-desktop');
-                    });
-                }
+            if (window.innerWidth < 1024) {
+                setMobile(true);
+            } else {
+                setMobile(false);
             }
         };
         window.addEventListener('resize', handleResize);
@@ -74,9 +63,9 @@ const CryptoCard = () => {
     }
 
     return (
-        <div className='cards'>
+        <div className={`cards ${isMobile ? 'cards-mobile' : 'cards-desktop'}`}>
             {Object.keys(bitCoinData).map((key, index) => (
-                <div className="card" key={index}>
+                <div className={`card ${isMobile ? 'card-mobile' : 'card-desktop'}`} key={index}>
                     <div className="container">
                         <div className="container" key={key}>
                             <img className='flag' src={getFlag(key)} alt="flag"></img>

@@ -172,8 +172,8 @@ body {
 .cards {
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
     justify-content: space-evenly;
+    flex-direction: column;
 }
 
 .card {
@@ -186,17 +186,20 @@ body {
     margin: 10px;
 }
 
+.cards-mobile {
+    flex-direction: column;
+}
+
+.cards-desktop {
+    flex-direction: row;
+}
+
 .card-desktop {
     width: 30%;
 }
 
 .card-mobile {
-    width: 100%;
     width: -webkit-fill-available;
-}
-
-.card-direction {
-    flex-direction: column;
 }
 
 .card:hover {
