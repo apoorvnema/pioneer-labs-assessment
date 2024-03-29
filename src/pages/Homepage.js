@@ -1,9 +1,32 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const Homepage = () => {
+    const [isMobile, setMobile] = useState(true);
+    const [isOpen, setOpen] = useState(true);
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth < 1024) {
+                setOpen(false);
+                setMobile(true);
+            }
+            else {
+                setOpen(true);
+                setMobile(false);
+            }
+        }
+        window.addEventListener('resize', handleResize);
+        handleResize();
+        return () => window.removeEventListener('resize', handleResize);
+    }, [])
+
     const highLightSidebar = () => {
         const sidebar = document.querySelector('.Sidebar')
+        if (isMobile && !isOpen) {
+            sidebar.classList.remove('close')
+            sidebar.classList.add('open')
+            setTimeout(() => sidebar.classList.add('close'), 1000);
+        }
         sidebar.classList.add('highlight')
         setTimeout(() => sidebar.classList.remove('highlight'), 200);
     }
@@ -18,7 +41,6 @@ const Homepage = () => {
                     <Link onClick={highLightSidebar}>Task 1: Side Navigation Bar</Link>
                     <Link to="/population">Task 2: Graph Population Data</Link>
                     <Link to="/crypto">Task 3: Cryptocurrency Prices Display</Link>
-                    <Link to="/crypto">Task 4 (Optional): MetaMask Wallet Integration</Link>
                 </div>
             </section>
         </div>

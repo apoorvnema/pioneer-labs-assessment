@@ -5,10 +5,10 @@ const About = () => {
         <div className='About Content'>
             <div className='about-me'>
                 <h2>About App</h2>
-                <p>Made By <a className="link" href="https://apoorvnema.pro">Apoorv Nema &#8599;</a></p>
+                <p>Made By <a className="link" href="https://apoorvnema.pro" target='_blank' rel="noreferrer">Apoorv Nema &#8599;</a></p>
                 <p>Version : 1.0</p>
-                <p style={{ display: "flex" }}><a className="link" href="https://linkedin.com/in/apoorvnema">LinkedIn Profile &#8599;</a></p>
-                <p style={{ display: "flex" }}><a className="link" href="https://github.com/apoorvnema/AI-Factory">GitHub Repository &#8599;</a></p>
+                <p style={{ display: "flex" }}><a className="link" rel="noreferrer" href="https://linkedin.com/in/apoorvnema" target='_blank'>LinkedIn Profile &#8599;</a></p>
+                <p style={{ display: "flex" }}><a className="link" rel="noreferrer" href="https://github.com/apoorvnema/pioneer-labs-assessment" target='_blank'>GitHub Repository &#8599;</a></p>
             </div>
         </div>
     );

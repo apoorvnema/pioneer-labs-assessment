@@ -5,6 +5,31 @@ const CryptoCard = () => {
     const [bitCoinData, setBitCoinData] = useState([]);
 
     useEffect(() => {
+        const handleResize = () => {
+            const cards = document.querySelectorAll('.card');
+            const cardsMain = document.querySelector('.cards');
+            if (cards && cardsMain) {
+                if (window.innerWidth < 1024) {
+                    cardsMain.classList.add('card-direction');
+                    cards.forEach((card) => {
+                        card.classList.add('card-mobile');
+                        card.classList.remove('card-desktop');
+                    });
+                } else {
+                    cardsMain.classList.remove('card-direction');
+                    cards.forEach((card) => {
+                        card.classList.remove('card-mobile');
+                        card.classList.add('card-desktop');
+                    });
+                }
+            }
+        };
+        window.addEventListener('resize', handleResize);
+        handleResize();
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await axios.get("https://api.coindesk.com/v1/bpi/currentprice.json");
