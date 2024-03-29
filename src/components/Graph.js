@@ -30,7 +30,7 @@ const Graph = () => {
                 setStepSize(Math.round((max - min) / (sortedData.length)));
             })
             .catch(err => console.log(err))
-    }, [])
+    }, [min, max])
 
     ChartJS.register(
         CategoryScale,

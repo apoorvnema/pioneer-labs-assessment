@@ -121,6 +121,10 @@ body {
     display: flex;
 }
 
+.highlight {
+    background-color: #202123c3;
+}
+
 /* Homepage, Population, Crypto, About */
 .Content {
     display: flex;
@@ -189,4 +193,42 @@ body {
 .note {
     font-size: 20px;
     color: grey;
+}
+
+/* Homepage */
+.Homepage {
+    font-size: x-large;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+}
+
+.button-group a {
+    background-color: #0da37f;
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.button-group a:hover {
+    background-color: #0c8b70;
+}
+
+/* About */
+.About {
+    font-size: x-large;
+}
+
+.link {
+    text-decoration: none;
+    color: #0da37f;
+}
+
+.link:hover {
+    color: #0c8b70;
 }

@@ -9,13 +9,12 @@ const CryptoCard = () => {
             try {
                 const response = await axios.get("https://api.coindesk.com/v1/bpi/currentprice.json");
                 setBitCoinData(response.data.bpi);
-                console.log(bitCoinData)
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
         };
         fetchData();
-        const intervalId = setInterval(fetchData, 30000);
+        const intervalId = setInterval(fetchData, 60000);
         return () => clearInterval(intervalId);
     }, []);
 
@@ -27,6 +26,8 @@ const CryptoCard = () => {
             case 'GBP': symbol = String.fromCharCode(163);
                 break;
             case 'EUR': symbol = String.fromCharCode(8364);
+                break;
+            default: symbol = String.fromCharCode(36);
                 break;
         }
         return symbol
@@ -41,17 +42,19 @@ const CryptoCard = () => {
                 break;
             case 'EUR': flag = "/EUROPE.svg";
                 break;
+            default: flag = "/USA.svg";
+                break;
         }
         return flag
     }
 
     return (
         <div className='cards'>
-            {Object.keys(bitCoinData).map(key => (
-                <div className="card">
+            {Object.keys(bitCoinData).map((key, index) => (
+                <div className="card" key={index}>
                     <div className="container">
                         <div className="container" key={key}>
-                            <img className='flag' src={getFlag(key)}></img>
+                            <img className='flag' src={getFlag(key)} alt="flag"></img>
                             <h4><b>{bitCoinData[key]['description']} {"("}{key}{")"}</b></h4>
                             <p>Rate: {bitCoinData[key]['rate']} {getSymbol(key)}</p>
                         </div>
